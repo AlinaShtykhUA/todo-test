@@ -5,13 +5,17 @@ const initialState = {
   tasks: [],
   filter: 'all',
 };
+
 export const todoSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
+    setTasks: (state, action) => {
+      state.tasks = action.payload;
+    },
     addTask: (state, action) => {
       state.tasks.push({
-        id: uuidv4(), // Generate a unique ID
+        id: uuidv4(),
         name: action.payload,
         completed: false,
       });
@@ -22,11 +26,15 @@ export const todoSlice = createSlice({
         task.completed = !task.completed;
       }
     },
+    deleteTask: (state, action) => {
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload);
+    },
     filterTasks: (state, action) => {
       state.filter = action.payload;
     },
   },
 });
 
-export const { addTask, toggleTask, filterTasks } = todoSlice.actions;
+export const { setTasks, addTask, toggleTask, deleteTask, filterTasks } =
+  todoSlice.actions;
 export default todoSlice.reducer;

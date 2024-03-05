@@ -1,12 +1,12 @@
 const TaskInput = ({ input, setInput, onAdd }) => (
-  <div className='flex justify-center mb-4'>
+  <div className='flex justify-center mb-4 '>
     <input
-      className='border-2 border-gray-200 rounded p-2 mr-2'
+      className='border border-cyan-500 p-2 focus:outline-none'
       value={input}
       onChange={(e) => setInput(e.target.value)}
     />
     <button
-      className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+      className='text-cyan-900 bg-cyan-100 hover:bg-cyan-500 border-cyan-500 border transition duration-500 ease-linear font-bold py-2 px-4 border-l-0'
       onClick={onAdd}
     >
       Add Task
